@@ -9,6 +9,8 @@ const users = {
     { name: 'Мария', lastName: 'Иванова', email: 'mary@mail.ru' },
     { name: 'Лена', lastName: 'Иванова', email: 'len@mail.ru' }
   ],
+  headerName: ['name', 'lastName', 'email'],
+
   render() {
     const body = document.body;
     const header = this.new('header')
@@ -17,21 +19,17 @@ const users = {
     const div = this.new('div');
     const table = this.new('table');
     const thead = this.new('thead');
-    table.append(thead);
+    const tr = this.new('tr');
+    const th = this.new('th');
 
-    this.contacts.forEach(contacts => {
-      const thead = this.new('thead');
-      const tr = this.new('tr');
-      table.append(thead);
-      thead.append(tr);
-      for (let key in contacts) {
-        const th = this.new('th');
-        tr.append(th);
-        th.textContent = key;
-      }
 
+
+    this.headerName.forEach(elem => {
+      const th = this.new('th');
+      tr.append(th);
+      th.textContent = elem;
     })
-
+    table.append(thead);
 
     this.contacts.forEach(contacts => {
       const tbody = this.new('tbody');
@@ -50,9 +48,12 @@ const users = {
     body.append(header, main)
     header.append(h2)
     h2.textContent = 'Contacts'
-    h2.setAttribute('align', 'center')
     main.append(div);
     div.append(table);
+    thead.append(tr);
+    h2.setAttribute('align', 'center')
+    div.setAttribute('align', 'center')
+
   },
 
   new(elemName) {
@@ -62,6 +63,3 @@ const users = {
 
 
 users.render();
-
-
-
