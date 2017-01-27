@@ -1,7 +1,3 @@
-
-
-
-
 const users = {
   contacts: [
     { Name: 'Иван', LastName: 'Иванов', Email: 'ivanov@mail.ru' },
@@ -21,8 +17,6 @@ const users = {
 
   render() {
     const table = document.querySelector('table')
-    const header = this.new('header')
-    const h2 = this.new('h2')
     const thead = this.new('thead');
     const tr = this.new('tr');
     const th = this.new('th');
@@ -49,13 +43,8 @@ const users = {
     })
 
     table.append(thead);
-
-    header.append(h2)
-    h2.textContent = 'Contacts'
     thead.append(tr);
-    h2.setAttribute('align', 'center')
-    div.setAttribute('align', 'center')
-
+  
   },
 
   
